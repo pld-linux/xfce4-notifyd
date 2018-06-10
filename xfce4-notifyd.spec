@@ -1,14 +1,14 @@
 Summary:	XFCE Notify Daemon
 Summary(pl.UTF-8):	Demon powiadomień XFCE
 Name:		xfce4-notifyd
-Version:	0.2.4
-Release:	3
+Version:	0.4.2
+Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://archive.xfce.org/src/apps/xfce4-notifyd/0.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	094be6f29206aac8299f27084e284e88
-#URL:		http://www.xfce.org/projects/xfce4-notifyd/
+Source0:	http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	ecb930ef6ae6e1f310a5afe5f638eff8
 URL:		http://git.xfce.org/apps/xfce4-notifyd/
+#URL:		http://www.xfce.org/projects/xfce4-notifyd/
 BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.6
@@ -26,8 +26,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 The XFCE Notify Daemon (xfce4-notifyd for short) is a smallish program
 that implements the "server-side" portion of the Freedesktop desktop
-notifications specification.  Applications that wish to pop up
-a notification bubble in a standard way can implicitly make use of
+notifications specification. Applications that wish to pop up a
+notification bubble in a standard way can implicitly make use of
 xfce4-notifyd to do so by sending standard messages over D-Bus using
 the org.freedesktop.Notifications interface.
 
@@ -48,8 +48,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/pt_PT
 
 %find_lang %{name}
 
@@ -75,3 +73,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/Smoke
 %{_datadir}/themes/ZOMG-PONIES!
 %{_mandir}/man1/xfce4-notifyd-config.1*
+%{systemduserunitdir}/xfce4-notifyd.service
+%attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libnotification-plugin.so
+%{_datadir}/xfce4/panel/plugins/notification-plugin.desktop
+%{_iconsdir}/hicolor/scalable/apps/xfce4-notifyd.svg
+%{_iconsdir}/hicolor/scalable/status/notification-disabled-new-symbolic.svg
+%{_iconsdir}/hicolor/scalable/status/notification-disabled-symbolic.svg
+%{_iconsdir}/hicolor/scalable/status/notification-new-symbolic.svg
+%{_iconsdir}/hicolor/scalable/status/notification-symbolic.svg
+%{_datadir}/themes/Bright/xfce-notify-4.0/gtk.css
+%{_datadir}/themes/Retro/xfce-notify-4.0/gtk.css
