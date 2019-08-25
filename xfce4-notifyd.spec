@@ -12,11 +12,11 @@ URL:		http://git.xfce.org/apps/xfce4-notifyd/
 BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.6
-BuildRequires:	libxfce4ui-devel >= 4.12.0
-BuildRequires:	libxfce4util-devel >= 4.12.0
+BuildRequires:	libxfce4ui-devel >= 4.14.0
+BuildRequires:	libxfce4util-devel >= 4.14.0
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= 4.12.0
-BuildRequires:	xfconf-devel >= 4.12.0
+BuildRequires:	xfce4-dev-tools >= 4.14.0
+BuildRequires:	xfconf-devel >= 4.14.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	dbus >= 0.91
