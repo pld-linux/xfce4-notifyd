@@ -1,12 +1,12 @@
 Summary:	XFCE Notify Daemon
 Summary(pl.UTF-8):	Demon powiadomień XFCE
 Name:		xfce4-notifyd
-Version:	0.4.4
-Release:	2
+Version:	0.6.1
+Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	9614d4f7c0790e8ab24e55896a44a8ac
+Source0:	http://archive.xfce.org/src/apps/xfce4-notifyd/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	58e70621d6b9e0e66399ed41ab402a47
 URL:		http://git.xfce.org/apps/xfce4-notifyd/
 #URL:		http://www.xfce.org/projects/xfce4-notifyd/
 BuildRequires:	dbus-devel
@@ -48,6 +48,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/libnotification-plugin.la
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/hy_AM
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ie
 
 %find_lang %{name}
 
