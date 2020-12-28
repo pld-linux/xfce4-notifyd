@@ -1,17 +1,17 @@
 Summary:	XFCE Notify Daemon
 Summary(pl.UTF-8):	Demon powiadomień XFCE
 Name:		xfce4-notifyd
-Version:	0.6.1
+Version:	0.6.2
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://archive.xfce.org/src/apps/xfce4-notifyd/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	58e70621d6b9e0e66399ed41ab402a47
+# Source0-md5:	7e4c7f8d922abc74b0a2e33fb123986a
 URL:		http://git.xfce.org/apps/xfce4-notifyd/
 #URL:		http://www.xfce.org/projects/xfce4-notifyd/
 BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.6
+BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	libxfce4ui-devel >= 4.14.0
 BuildRequires:	libxfce4util-devel >= 4.14.0
 BuildRequires:	pkgconfig >= 1:0.9.0
@@ -50,8 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/libnotification-plugin.la
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/hy_AM
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ie
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,hy_AM,ie}
 
 %find_lang %{name}
 
@@ -70,19 +69,17 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-notifyd-config
 %dir %{_libdir}/xfce4/notifyd
 %attr(755,root,root) %{_libdir}/xfce4/notifyd/xfce4-notifyd
-%{_datadir}/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service
+%{_sysconfdir}/xdg/autostart/xfce4-notifyd.desktop
 %{_desktopdir}/xfce4-notifyd-config.desktop
-%{_iconsdir}/hicolor/*/apps/xfce4-notifyd.png
+%{_iconsdir}/hicolor/*/apps/org.xfce.notification.*
 %{_datadir}/themes/Bright
 %{_datadir}/themes/Default/xfce-notify-4.0
 %{_datadir}/themes/Retro
 %{_datadir}/themes/Smoke
 %{_datadir}/themes/ZOMG-PONIES!
 %{_mandir}/man1/xfce4-notifyd-config.1*
-%{systemduserunitdir}/xfce4-notifyd.service
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libnotification-plugin.so
 %{_datadir}/xfce4/panel/plugins/notification-plugin.desktop
-%{_iconsdir}/hicolor/scalable/apps/xfce4-notifyd.svg
 %{_iconsdir}/hicolor/scalable/status/notification-disabled-new-symbolic.svg
 %{_iconsdir}/hicolor/scalable/status/notification-disabled-symbolic.svg
 %{_iconsdir}/hicolor/scalable/status/notification-new-symbolic.svg
