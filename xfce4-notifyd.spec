@@ -1,16 +1,17 @@
 Summary:	XFCE Notify Daemon
 Summary(pl.UTF-8):	Demon powiadomień XFCE
 Name:		xfce4-notifyd
-Version:	0.6.2
+Version:	0.6.3
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://archive.xfce.org/src/apps/xfce4-notifyd/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	7e4c7f8d922abc74b0a2e33fb123986a
+# Source0-md5:	2ab9402c1a95d18bcb8951ef6a4399d5
 URL:		http://git.xfce.org/apps/xfce4-notifyd/
 #URL:		http://www.xfce.org/projects/xfce4-notifyd/
 BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
+BuildRequires:	glib2-devel >= 1:2.56
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	libxfce4ui-devel >= 4.14.0
 BuildRequires:	libxfce4util-devel >= 4.14.0
