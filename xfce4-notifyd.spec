@@ -1,12 +1,12 @@
 Summary:	XFCE Notify Daemon
 Summary(pl.UTF-8):	Demon powiadomień XFCE
 Name:		xfce4-notifyd
-Version:	0.7.3
+Version:	0.8.0
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	https://archive.xfce.org/src/apps/xfce4-notifyd/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	809ccaf0a8e701c5fce90776da6d2f8a
+Source0:	https://archive.xfce.org/src/apps/xfce4-notifyd/0.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	c611b4134f05401c728bfade41c8fb3f
 URL:		https://git.xfce.org/apps/xfce4-notifyd/
 BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
@@ -82,7 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/xfce4-notifyd-config.1*
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libnotification-plugin.so
 %{_datadir}/xfce4/panel/plugins/notification-plugin.desktop
-%{_iconsdir}/hicolor/scalable/status/notification-disabled-new-symbolic.svg
 %{_iconsdir}/hicolor/scalable/status/notification-disabled-symbolic.svg
-%{_iconsdir}/hicolor/scalable/status/notification-new-symbolic.svg
+%{_iconsdir}/hicolor/scalable/status/org.xfce.notification.unread-emblem-symbolic.svg
 %{_iconsdir}/hicolor/scalable/status/notification-symbolic.svg
