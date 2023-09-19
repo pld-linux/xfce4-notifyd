@@ -1,23 +1,27 @@
 Summary:	XFCE Notify Daemon
 Summary(pl.UTF-8):	Demon powiadomień XFCE
 Name:		xfce4-notifyd
-Version:	0.8.2
+Version:	0.9.0
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	https://archive.xfce.org/src/apps/xfce4-notifyd/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	4bbeff59d9c872961f7236c226652895
+Source0:	https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	1cdcc050b5fd0304a9f653b6e8efa3e6
 URL:		https://git.xfce.org/apps/xfce4-notifyd/
-BuildRequires:	dbus-devel
+BuildRequires:	dbus-devel >= 1.0
 BuildRequires:	dbus-glib-devel
-BuildRequires:	glib2-devel >= 1:2.56
+BuildRequires:	glib2-devel >= 1:2.68
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtk-layer-shell-devel >= 0.7.0
 BuildRequires:	libcanberra-gtk3-devel >= 0.30
+BuildRequires:	libnotify-devel >= 0.7.0
 BuildRequires:	libxfce4ui-devel >= 4.14.0
 BuildRequires:	libxfce4util-devel >= 4.14.0
 BuildRequires:	pkgconfig >= 1:0.9.0
+BuildRequires:	sqlite3-devel >= 3.34
+BuildRequires:	systemd-devel >= 245
 BuildRequires:	xfce4-dev-tools >= 4.14.0
+BuildRequires:	xfce4-panel-devel >= 4.14.0
 BuildRequires:	xfconf-devel >= 4.14.0
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
@@ -41,7 +45,8 @@ programem implementującym serwerową część specyfikacji powiadomień.
 %setup -q
 
 %build
-%configure
+%configure \
+	--enable-xdg-autostart
 
 %{__make}
 
@@ -79,6 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/themes/Retro
 %{_datadir}/themes/Smoke
 %{_datadir}/themes/ZOMG-PONIES!
+%{systemduserunitdir}/xfce4-notifyd.service
+%{_datadir}/dbus-1/services/org.xfce.xfce4-notifyd.Notifications.service
+%{_datadir}/dbus-1/services/org.xfce.xfce4-notifyd.Notifyd.service
 %{_mandir}/man1/xfce4-notifyd-config.1*
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libnotification-plugin.so
 %{_datadir}/xfce4/panel/plugins/notification-plugin.desktop
